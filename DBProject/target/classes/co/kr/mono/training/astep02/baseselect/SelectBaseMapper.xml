@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SelectBaseMapper">
+	<select id="findAreaSales" resultType="AreaSale">
+		<!-- resultType="co.kr.mono.training.vo.AreaSaleVO" -->
+		SELECT	 AREA_CD AREACD
+				,REGION_AREA REGIONAREA
+				,PROD_ID PRODID
+				,SUM(SALE_CNT) SALECNT
+		FROM 	SALE_TBL
+		WHERE AREA_CD = #{areaCd}
+		AND ROWNUM =1
+		GROUP BY AREA_CD
+		,REGION_AREA
+		,PROD_ID
+	</select>
+	<select id="findMsale" resultType="Msales">
+		SELECT PRODID,PRODNM,SALECNT
+		FROM MSALES
+	</select>
+
+</mapper>

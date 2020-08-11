@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias alias="AreaSale"
+			type="co.kr.mono.training.vo.AreaSaleVO" /><!-- 클래스에 지정 -->
+		<typeAlias alias="Msales"
+			type="co.kr.mono.training.vo.MsalesVO" />
+		<package name="co.kr.mono.training.nvo" />	<!-- 패키지에 지정 -->
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@220.76.95.42:3980:wisedb" />
+				<property name="username" value="wise_user" />
+				<property name="password" value="1234" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper
+			resource="co/kr/mono/training/astep02/baseselect/SelectBaseMapper.xml" />
+		<mapper
+			resource="co/kr/mono/training/astep03/select/SelectNVOMapper.xml" />
+		<mapper
+			resource="co/kr/mono/training/astep04/select/SelectVOMapper.xml" />
+		<mapper
+			resource="co/kr/mono/training/astep05/select/SelectDepRtypeMapper.xml" />
+		<mapper
+			resource="co/kr/mono/training/astep06/select/SelectCdataMapper.xml" />	
+	</mappers>
+</configuration>
+
+
+<!-- <environments default="development"> <environment id="development"> 
+	<transactionManager type="JDBC" /> <dataSource type="POOLED"> <property name="driver" 
+	value="oracle.jdbc.OracleDriver" /> <property name="url" value="jdbc:oracle:thin:@220.76.95.42:3980:wisedb" 
+	/> <property name="username" value="wise_user" /> <property name="password" 
+	value="1234" /> </dataSource> </environment> </environments> <environments 
+	default="development"> <environment id="development"> <transactionManager 
+	type="JDBC" /> <dataSource type="POOLED"> <property name="driver" value="oracle.jdbc.OracleDriver" 
+	/> <property name="url" value="jdbc:oracle:thin:@211.193.30.169:2800:mdctdb" 
+	/> <property name="username" value="iaccess_user" /> <property name="password" 
+	value="iaccess" /> </dataSource> </environment> </environments> -->

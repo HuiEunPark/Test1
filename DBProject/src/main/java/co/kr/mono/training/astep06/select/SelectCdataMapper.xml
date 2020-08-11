@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SelectCdataMapper">
+
+	<select id="examCount" resultType="_integer">
+		SELECT	COUNT(*) CNT
+		FROM 	EXAM_RSLT
+	</select>
+	<select id="examDate" resultType="co.kr.mono.training.vo.SimpleVO" >
+		SELECT	 SYSDATE UTILCURRENTDATE
+				,SYSDATE SQLCURRENTDATE
+				,TO_CHAR(sysdate,'YYYY-MM-DD HH24:MI:SS') SQLCURRENTTIMESTAMP
+				,TO_CHAR(sysdate,'YYYY-MM-DD HH24:MI:SS') CURRENTSTRDATE
+				,CURRENT_TIMESTAMP SQLDBCURRENTTIMESTAMP
+		FROM 	 DUAL
+	</select>
+	
+</mapper>
